@@ -36,30 +36,36 @@ public class Aug23 {
     ArrayList<ArrayList<Object>> arr = new ArrayList<ArrayList<Object>>() {
       {
         add(new ArrayList<>(Arrays.asList("1234567890123456", false)));
+        add(new ArrayList<>(Arrays.asList("123456", false)));
+        add(new ArrayList<>(Arrays.asList("4388576018402626 ", false)));
+
+        add(new ArrayList<>(Arrays.asList("378734493671000", true)));
+        add(new ArrayList<>(Arrays.asList("5610591081018250", true)));
+        add(new ArrayList<>(Arrays.asList("3530111333300000", true)));
         add(new ArrayList<>(Arrays.asList("1234567890123452", true)));
         add(new ArrayList<>(Arrays.asList("378282246310005", true)));
         add(new ArrayList<>(Arrays.asList("371449635398431", true)));
-        add(new ArrayList<>(Arrays.asList("378734493671000", true)));
-        add(new ArrayList<>(Arrays.asList("5610591081018250", true)));
         add(new ArrayList<>(Arrays.asList("30569309025904", true)));
         add(new ArrayList<>(Arrays.asList("38520000023237", true)));
         add(new ArrayList<>(Arrays.asList("6011111111111117", true)));
         add(new ArrayList<>(Arrays.asList("6011000990139424", true)));
-        add(new ArrayList<>(Arrays.asList("3530111333300000", true)));
         add(new ArrayList<>(Arrays.asList("3566002020360505", true)));
       }
     };
     for (ArrayList<Object> item : arr) {
       String p = (String) item.get(0);
-      Boolean res = (Boolean) item.get(1);
-      assert validateCard(p) == res;
-      System.out.println(p + " is a validCard: " + res);
+      Boolean ans = (Boolean) item.get(1);
+      boolean res = validateCard(p);
+      System.out
+          .println(p + " is a validCard: " + res + ", expected: " + ans + ". Passed? " + String.valueOf(ans == res));
     }
   }
 
   public static boolean validateCard(String cardNum) {
-    int lastDigit = cardNum.charAt(cardNum.length() - 1) - '0';
-    cardNum = cardNum.substring(0, cardNum.length() - 1);
+    int len = cardNum.length();
+    if (len < 14 || len > 19) { return false; }
+    int lastDigit = cardNum.charAt(len - 1) - '0';
+    cardNum = cardNum.substring(0, len - 1);
     int[] arr = numToIntArr(cardNum);
     reverseArray(arr);
     for (int i = 0; i < arr.length; i += 2) {
@@ -72,7 +78,7 @@ public class Aug23 {
       arr[i] = sum;
     }
     int total = sum(arr);
-    return 10 - total % 10 == lastDigit;
+    return (total + lastDigit) % 10 == 0;
   }
 
   public static int sum(int[] arr) {
