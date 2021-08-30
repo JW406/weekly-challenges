@@ -1,0 +1,24 @@
+Logical Reasoning:
+
+A watch, which loses time uniformly, was observed to be 5 minutes fast at 8.00
+p.m. on Thursday. It was noticed to be 7 minutes slow at 8.00 a.m. on the
+subsequent Monday. When did the watch show the correct time ? Explanation
+needed.
+
+a) 7 a.m. Saturday b) 7 a.m. on Friday
+
+c) 10a.m. on Sunday d) 11 a.m. on Friday
+
+Answer is a);
+
+Since the watch loses time uniformly, if we find out the rate of change between
+the two observed times and use that ROC times 5 minutes it would be the time in
+hours required to offset 5 minutes.
+
+If we consider Friday 00:00AM to be the origin, then 8.00p.m. on Thursday is
+"-4", and 8.00 a.m. on the subsequent Monday is "(8-5)*24+8=80". During the
+"80-(-4)=84hours", "7-(-5)=12minutes" have been lost. ROC is "84/12=7hrs/min",
+or the watch loses a minute every 7 hour. To offset 5 minutes starting 8:00PM
+Thursday, 5*7, or 35 hours, are required. 8:00PM is 4hours away from the origin,
+35-4=31 hours, and when we offset 31 hours from the origin we will arrive at a)
+7 a.m. Saturday
